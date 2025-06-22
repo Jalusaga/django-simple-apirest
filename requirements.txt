@@ -24,3 +24,5 @@ python-dotenv==1.0.1
 
 # SQL formatter/parser
 sqlparse==0.5.3
+
+gunicorn==20.1.0
