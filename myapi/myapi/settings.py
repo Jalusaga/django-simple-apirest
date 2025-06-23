@@ -15,16 +15,12 @@ import os
 from dotenv import load_dotenv
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Build the absolute path to your .env
 DOTENV_PATH = BASE_DIR.parent / ".env"
 
-# Now explicitly load it
 load_dotenv(dotenv_path=str(DOTENV_PATH))
 
-# … now pull ALLOWED_HOSTS from the env …
 raw_allowed = os.getenv("ALLOWED_HOSTS", "")
 # split on whitespace (you rendered as space-delimited in .env)
 ALLOWED_HOSTS = raw_allowed.split()
