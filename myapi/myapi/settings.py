@@ -15,11 +15,14 @@ import os
 from dotenv import load_dotenv
 
 
-# Reads .env in project root
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Build the absolute path to your .env
+DOTENV_PATH = BASE_DIR.parent / ".env"
+
+# Now explicitly load it
+load_dotenv(dotenv_path=str(DOTENV_PATH))
 
 
 # Quick-start development settings - unsuitable for production
