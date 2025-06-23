@@ -24,6 +24,11 @@ DOTENV_PATH = BASE_DIR.parent / ".env"
 # Now explicitly load it
 load_dotenv(dotenv_path=str(DOTENV_PATH))
 
+# … now pull ALLOWED_HOSTS from the env …
+raw_allowed = os.getenv("ALLOWED_HOSTS", "")
+# split on whitespace (you rendered as space-delimited in .env)
+ALLOWED_HOSTS = raw_allowed.split()
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -33,8 +38,6 @@ SECRET_KEY = "django-insecure-$sb20m1s@09$6#qtqbi-n10xj#ilq#kjf*58t88vhyw)m*+&x&
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
